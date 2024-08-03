@@ -1,5 +1,5 @@
 <script setup>
-import logo from '@images/logo.jpg'
+import logo from '@images/av.png'
 import { useDisplay } from 'vuetify'
 
 const props = defineProps({
@@ -38,30 +38,18 @@ const handleNavScroll = evt => {
 </script>
 
 <template>
-  <Component
-    :is="props.tag"
-    ref="refNav"
-    class="layout-vertical-nav"
-    :class="[
-      {
-        'visible': isOverlayNavActive,
-        'scrolled': isVerticalNavScrolled,
-        'overlay-nav': smAndDown,
-      },
-    ]"
-  >
+  <Component :is="props.tag" ref="refNav" class="layout-vertical-nav" :class="[
+    {
+      'visible': isOverlayNavActive,
+      'scrolled': isVerticalNavScrolled,
+      'overlay-nav': smAndDown,
+    },
+  ]">
     <!-- 👉 Header -->
     <div class="nav-header">
       <slot name="nav-header">
-        <RouterLink
-          to="/"
-          class="app-logo d-flex align-center gap-x-3 app-title-wrapper"
-        >
-          <img
-            class="d-flex"
-            style="height: 40px;border-radius: 3px;"
-            :src="logo"
-          >
+        <RouterLink to="/" class="app-logo d-flex align-center gap-x-3 app-title-wrapper">
+          <img class="d-flex" style="height: 40px;border-radius: 3px;" :src="logo">
           <h1 class="leading-normal">
             3S-W
           </h1>
@@ -71,14 +59,8 @@ const handleNavScroll = evt => {
     <slot name="before-nav-items">
       <div class="vertical-nav-items-shadow" />
     </slot>
-    <slot
-      name="nav-items"
-      :update-is-vertical-nav-scrolled="updateIsVerticalNavScrolled"
-    >
-      <ul
-        class="nav-items scroll-css"
-        style="overflow-y: scroll;"
-      >
+    <slot name="nav-items" :update-is-vertical-nav-scrolled="updateIsVerticalNavScrolled">
+      <ul class="nav-items scroll-css" style="overflow-y: scroll;">
         <slot />
       </ul>
     </slot>
