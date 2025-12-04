@@ -38,7 +38,7 @@ jobs:
 
       # 5️⃣ 创建 .nojekyll 避免 GitHub Pages 解析错误
       - name: Create .nojekyll
-        run: touch dist/.nojekyll
+        run: touch docs/.nojekyll
 
       # 6️⃣ 如果使用 history 模式，还需要 404.html 处理
       - name: Copy index.html to 404.html (history fallback)
@@ -48,7 +48,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: docs
 
   deploy:
     runs-on: ubuntu-latest
