@@ -42,7 +42,7 @@ jobs:
 
       # 6️⃣ 如果使用 history 模式，还需要 404.html 处理
       - name: Copy index.html to 404.html (history fallback)
-        run: cp dist/index.html dist/404.html
+        run: cp docs/index.html docs/404.html
 
       # 7️⃣ 上传 dist 目录到 GitHub Pages
       - name: Upload artifact
